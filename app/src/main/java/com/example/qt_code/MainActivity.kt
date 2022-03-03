@@ -27,18 +27,19 @@ class MainActivity : AppCompatActivity() {
                     "<p>А еще они умеют мяукать.</p>" +
                     "<a href='http://developer.alexanderklimov.ru'>Подробности здесь</a>" +
                     "</body></html>")
-            try{
-                val doc = Jsoup.connect("http://developer.alexanderklimov.ru/android/").get()
-                val title =doc.title()
-                textViewParsig.setText(title)
-            } catch (e: Exception){
-                e.printStackTrace()
-            }
+            //try{
+                val doc = Jsoup.connect("https://yandex.ru/").get()
+                //val title = doc.title()
+                //textViewParsig.setText(title)
+            //} catch (e: Exception){
+            //    e.printStackTrace()
+           // }
 
             /*
             //val doc = Jsoup.parse(html) // Здась может быть адрес страницы
             //textViewParsig.text = doc.html() // чтение всего документа
             textViewParsig.text = doc.title()  // Извлечение заголовка
+            */
             // получение ссылки
             val link = doc.select("a").first()
             val linkHref = link.attr("href")
@@ -46,7 +47,7 @@ class MainActivity : AppCompatActivity() {
             // получение текта ссылки
             val linkInnerH = link.html()
             textViewParsig.text = linkInnerH
-             */
+
         }
     }
 }
